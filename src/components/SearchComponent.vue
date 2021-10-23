@@ -1,15 +1,15 @@
 <template>
     <section class="search-component__container">
         <input type="text"
-               v-model="searchField"
-               placeholder="Введите имя"
-               class="search-component__input"
-               @input="takeData"
+            v-model="searchField"
+            placeholder="Введите имя"
+            class="search-component__input"
+            @input="takeData"
         >
         <list-container
-                class="search-list__container"
-                :personsArray="personsArray"
-                @addPerson="addPerson"
+            class="search-list__container"
+            :personsArray="personsArray"
+            @addPerson="addPerson"
         />
         <button
             class="search__button"
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import {url, API_KEY} from  '../api/api.js'
+    import { fetchData } from  '../api/api.js'
     import ListContainer from "./elements/ListContainer"
     import SelectedPersonsList from "./elements/SelectedPersonsList";
 
@@ -47,33 +47,21 @@
         },
 
         methods: {
-            takeData() {
-                const query = this.searchField
-                const options = {
-                    method: "POST",
-                    mode: "cors",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                        "Authorization": "Token " + API_KEY
-                    },
-                    body: JSON.stringify({query: query})
-                }
-                if (this.searchField.length > 2 && this.startAutoSearch) {
-                    this.personsArray = []
-                    fetch(url, options)
-                        .then(response => response.text())
-                        .then(result => {
-                           const personsData = JSON.parse(result)
-                           personsData.suggestions.forEach(element => this.personsArray.push(element.value))
-                        })
-                        .catch(error => console.log("error", error))
-                }
-            },
-            addPerson(person) {
-                this.selectedPersons.push(person)
 
+            async takeData() {
+                const query = this.searchField
+
+                if ( this.searchField.length > 2 && this.startAutoSearch ) {
+                    this.personsArray = []
+                    const personsData = await fetchData(query)
+                    personsData.suggestions.forEach(element => this.personsArray.push(element.value))
+                }
             },
+
+            addPerson( person ) {
+                this.selectedPersons.push( person )
+            },
+
             handlerAutoSearch() {
                 this.startAutoSearch =  !this.startAutoSearch
             }
