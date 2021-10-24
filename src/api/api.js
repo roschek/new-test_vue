@@ -10,15 +10,15 @@ export const fetchData = person => {
             "Accept": "application/json",
             "Authorization": "Token " + API_KEY
         },
-        body: JSON.stringify({query: person})
+        body: JSON.stringify({query: person} )
     }
 
-    return fetch(url, options)
-        .then(response => response.text())
-        .then(result => {
-            const fetchData = JSON.parse(result)
+    return fetch( url, options )
+        .then( response => response.text() )
+        .then( result => {
+            const fetchData = JSON.parse( result )
             return fetchData
         })
-        .catch(error => console.log("error", error))
+        .catch( error => console.log( "error", error ) )
 }
 

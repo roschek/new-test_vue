@@ -13,10 +13,10 @@
 
 <script>
     export default {
-        name:'list-container',
+        name: 'list-container',
 
         props: {
-            personsArray:{
+            personsArray: {
                 type: Array,
                 required: true
             }
@@ -24,7 +24,7 @@
 
         methods: {
             addPerson(person) {
-                this.$emit('addPerson',person)
+                this.$emit('addPerson',person )
             }
         }
     }

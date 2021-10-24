@@ -15,11 +15,11 @@
 
 <script>
     export default {
-        name:'selected-persons-list',
+        name: 'selected-persons-list',
         props: {
             selectedPersons: {
                 type: Array,
-                required:true
+                required: true
             }
         }
 
@@ -47,7 +47,7 @@
         list-style: none;
         background-color: #C4C4C4;
     }
-    .selected__list-item{
+    .selected__list-item {
         margin-top: 2px;
         background-color: white;
         padding-left: 15px;

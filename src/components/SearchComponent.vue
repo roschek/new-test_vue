@@ -42,8 +42,11 @@
                 searchField: '',
                 personsArray: [],
                 startAutoSearch: true,
-                selectedPersons:[]
+                selectedPersons: []
             }
+        },
+        computed: {
+
         },
 
         methods: {
@@ -54,7 +57,7 @@
                 if ( this.searchField.length > 2 && this.startAutoSearch ) {
                     this.personsArray = []
                     const personsData = await fetchData(query)
-                    personsData.suggestions.forEach(element => this.personsArray.push(element.value))
+                    personsData.suggestions.forEach(element => this.personsArray.push( element.value ))
                 }
             },
 
