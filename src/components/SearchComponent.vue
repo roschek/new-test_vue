@@ -16,7 +16,7 @@
             @click="handlerAutoSearch"
         >
             <span v-if="startAutoSearch">Остановить автопоиск</span>
-            <span v-else >Включить автопоиск</span>
+            <span v-else>Включить автопоиск</span>
         </button>
         <selected-persons-list
             v-if="selectedPersons.length"
@@ -33,7 +33,7 @@
     export default {
         name: 'search-component',
         components: {
-            'list-container':ListContainer,
+            'list-container': ListContainer,
             'selected-persons-list': SelectedPersonsList
         },
 
@@ -53,8 +53,8 @@
 
                 if ( this.searchField.length > 2 && this.startAutoSearch ) {
                     this.personsArray = []
-                    const personsData = await fetchData(query)
-                    personsData.suggestions.forEach(element => this.personsArray.push( element.value ))
+                    const personsData = await fetchData( query )
+                    personsData.suggestions.forEach( element => this.personsArray.push( element.value ) )
                 }
             },
 

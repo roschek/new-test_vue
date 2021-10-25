@@ -40,7 +40,7 @@
     .title {
         font-size: 12px;
     }
-    .selected-list{
+    .selected-list {
         padding-left: 0;
         margin: 0;
         width: 100%;

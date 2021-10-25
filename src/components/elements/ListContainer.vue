@@ -23,7 +23,7 @@
         },
 
         methods: {
-            addPerson(person) {
+            addPerson( person ) {
                 this.$emit('addPerson',person )
             }
         }
