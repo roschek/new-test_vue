@@ -45,9 +45,6 @@
                 selectedPersons: []
             }
         },
-        computed: {
-
-        },
 
         methods: {
 
