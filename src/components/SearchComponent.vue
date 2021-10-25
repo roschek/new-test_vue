@@ -28,7 +28,7 @@
 <script>
     import { fetchData } from  '../api/api.js'
     import ListContainer from "./elements/ListContainer"
-    import SelectedPersonsList from "./elements/SelectedPersonsList";
+    import SelectedPersonsList from "./elements/SelectedPersonsList"
 
     export default {
         name: 'search-component',
